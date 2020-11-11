@@ -1,0 +1,22 @@
+{
+  "name": "random-psalm",
+  "version": "1.0.0",
+  "description": "random psalm generator using the ESV api",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karlyanelson/random-psalm.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karlyanelson/random-psalm/issues"
+  },
+  "homepage": "https://github.com/karlyanelson/random-psalm#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}

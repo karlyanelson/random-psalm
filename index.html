@@ -18,14 +18,12 @@
         }
       }
 
-      // "/.netlify/functions/getpassage?q=John+11:35"
-
-      fetch("/.netlify/functions/node-fetch-example")
+      fetch("/.netlify/functions/getpassage?q=John+11")
         .then(handleResponse)
         .then(function (data) {
           console.log("fetch data", data);
 
-          document.querySelector("#content").textContent = data.msg;
+          document.querySelector("#content").textContent = data.msg.passages[0];
         })
         .catch(function (err) {
           console.warn("Error:", err);
