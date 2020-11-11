@@ -1,0 +1,208 @@
+:root {
+  --text-lightTheme: #2b232b;
+  --bg-lightTheme: #ded8ca;
+  --action-lightTheme: rebeccapurple;
+
+  --text-darkTheme: #e2e2e2;
+  --bg-darkTheme: #292729;
+  --action-darkTheme: #c498f1;
+}
+
+body {
+  --var-text: var(--text-lightTheme);
+  --var-bg: var(--bg-lightTheme);
+  --var-action: var(--action-lightTheme);
+  font-size: 1.5rem;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  padding: 1rem;
+  color: var(--var-text);
+  background-color: var(--var-bg);
+}
+
+body.dark {
+  --var-text: var(--text-darkTheme);
+  --var-bg: var(--bg-darkTheme);
+  --var-action: var(--action-darkTheme);
+}
+
+.dark a:hover {
+  background-color: rgba(148, 107, 189, 0.25);
+}
+
+main {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+h1 {
+  opacity: 0.8;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.25em;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+
+p {
+  line-height: 1.6;
+}
+
+.verse-num,
+.chapter-num {
+  font-size: 0.75em;
+  font-weight: normal;
+  vertical-align: top;
+  opacity: 0.75;
+}
+
+.audio {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 1rem;
+  color: var(--var-bg);
+}
+
+.mp3link {
+  position: relative;
+}
+
+.mp3link::before {
+  content: "\1F50A";
+  display: inline-block;
+  margin-right: 0.25rem;
+}
+
+.psalm-title,
+.psalm-acrostic-title {
+  font-style: italic;
+  font-weight: normal;
+  margin-top: 0rem;
+}
+
+.psalm-acrostic-title {
+  margin-top: 2rem;
+}
+
+.psalm-book {
+  font-variant: small-caps;
+  font-size: 1.5rem;
+}
+
+.footnotes {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  font-size: 0.75rem;
+  opacity: 0.8;
+  position: relative;
+}
+
+.footnotes:before {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background-color: var(--var-text);
+  opacity: 0.5;
+}
+
+.footnotes h3 {
+  font-size: 1rem;
+}
+
+h1,
+.audio,
+.footnotes {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a {
+  color: var(--var-action);
+  text-decoration: none;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+}
+
+a:hover {
+  background-color: rgba(102, 51, 153, 0.1);
+}
+
+/* Screen Reader */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
+/* Dark Mode Toggle */
+/* inspired by https://codepen.io/stefen/pen/VNVaYW */
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+}
+.toggle span {
+  margin: 0 0.25rem;
+}
+.toggle input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+  position: absolute;
+}
+.toggle input[type="checkbox"]:checked + label {
+  background: var(--var-action);
+}
+.toggle input[type="checkbox"]:checked + label:after {
+  left: calc(100% - 2px);
+  transform: translateX(-100%);
+}
+.toggle label {
+  cursor: pointer;
+  width: 3.5rem;
+  height: 2rem;
+  background: rgba(0, 0, 0, 0.27);
+  display: block;
+  border-radius: 40px;
+  position: relative;
+}
+
+.toggle label:after {
+  content: "";
+  position: absolute;
+  top: 0.125rem;
+  left: 0.125rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  background: #fff;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+/* Media Queries */
+
+@media (max-width: 40em) {
+  body {
+    font-size: 1.25rem;
+    padding: 0.5rem;
+  }
+}
