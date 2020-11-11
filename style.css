@@ -174,7 +174,7 @@ a:hover {
   background: var(--var-action);
 }
 .toggle input[type="checkbox"]:checked + label:after {
-  left: calc(100% - 2px);
+  left: calc(100% - 0.125rem);
   transform: translateX(-100%);
 }
 .toggle label {
