@@ -7,9 +7,16 @@
   </head>
   <body>
     <h1>Random Psalm</h1>
-    <p id="content"></p>
+    <div id="content"></div>
 
     <script>
+      function randomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+      }
+
+      // Logs something like 37
+      var randomChapter = randomNumber(1, 150);
+
       function handleResponse(response) {
         if (response.ok) {
           return response.json();
@@ -18,7 +25,7 @@
         }
       }
 
-      fetch("/.netlify/functions/getpassage?q=John+11")
+      fetch(`/.netlify/functions/getpassage?q=Psalm+${randomChapter}`)
         .then(handleResponse)
         .then(function (data) {
           console.log("fetch data", data);
