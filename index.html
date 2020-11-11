@@ -161,12 +161,14 @@
     </main>
 
     <script>
+      // Variables
+      var contentArea = document.querySelector("#content");
+      var randomChapter = randomNumber(1, 150);
+
+      // Methods
       function randomNumber(min, max) {
         return Math.floor(Math.random() * (max - min + 1) + min);
       }
-
-      // Logs something like 37
-      var randomChapter = randomNumber(1, 150);
 
       function handleResponse(response) {
         if (response.ok) {
@@ -176,14 +178,19 @@
         }
       }
 
+      function showPsalm(data) {
+        contentArea.innerHTML = data.msg.passages[0];
+      }
+
+      function handleError(err) {
+        console.warn("Error:", err);
+      }
+
+      // Fetch
       fetch(`/.netlify/functions/getpassage?q=Psalm+${randomChapter}`)
         .then(handleResponse)
-        .then(function (data) {
-          document.querySelector("#content").innerHTML = data.msg.passages[0];
-        })
-        .catch(function (err) {
-          console.warn("Error:", err);
-        });
+        .then(showPsalm)
+        .catch(handleError);
     </script>
   </body>
 </html>
