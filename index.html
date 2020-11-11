@@ -27,7 +27,7 @@
       var contentArea = document.querySelector("#content");
       var randomChapter = randomNumber(1, 150);
       var modeSwitcher = document.querySelector("#modeSwitcher");
-      var localStorageVar = "randomPsalm_darkMode";
+      var localStorageDarkMode = "randomPsalm_darkMode";
 
       // Methods
       function randomNumber(min, max) {
@@ -51,8 +51,8 @@
       }
 
       function checkLocalStorage() {
-        if (localStorage.getItem(localStorageVar) === "true") {
-          // if true, then we're in dark mode (since light mode checked is default)
+        if (localStorage.getItem(localStorageDarkMode) === "true") {
+          // if true, then we're in dark mode (since light mode is default)
           modeSwitcher.checked = true;
           document.body.classList.add("dark");
         }
@@ -60,18 +60,19 @@
 
       function eventHandler(event) {
         if (event.target.checked) {
-          localStorage.setItem(localStorageVar, true);
+          localStorage.setItem(localStorageDarkMode, true);
           document.body.classList.add("dark");
         }
         if (!event.target.checked) {
-          localStorage.setItem(localStorageVar, false);
+          localStorage.setItem(localStorageDarkMode, false);
           document.body.classList.remove("dark");
         }
       }
 
-      // On load, get localStorage values
+      // On load, get localStorage value
       checkLocalStorage();
-      // Fetch
+
+      // Fetch psalm
       fetch(`/.netlify/functions/getpassage?q=Psalm+${randomChapter}`)
         .then(handleResponse)
         .then(showPsalm)
