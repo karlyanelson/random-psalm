@@ -162,6 +162,7 @@ a:hover {
 }
 .toggle span {
   margin: 0 0.25rem;
+  filter: drop-shadow(0px 0px 2px gray);
 }
 .toggle input[type="checkbox"] {
   height: 0;
