@@ -29,8 +29,22 @@
       font-size: 1rem;
     }
 
+    .mp3link {
+      position: relative;
+    }
+
+    .mp3link::before {
+      content: "\1F50A";
+      display: inline-block;
+      margin-right: 0.25rem;
+    }
+
     .psalm-title {
       font-style: italic;
+    }
+
+    .psalm-book {
+      font-variant: small-caps;
     }
 
     .footnotes {
@@ -54,6 +68,21 @@
 
     a:hover {
       background-color: rgba(102, 51, 153, 0.1);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #232023;
+        color: #fffefc;
+      }
+
+      a {
+        color: #c498f1;
+      }
+
+      a:hover {
+        background-color: rgba(148, 107, 189, 0.25);
+      }
     }
   </style>
   <body>
@@ -81,8 +110,6 @@
       fetch(`/.netlify/functions/getpassage?q=Psalm+${randomChapter}`)
         .then(handleResponse)
         .then(function (data) {
-          console.log("fetch data", data);
-
           document.querySelector("#content").innerHTML = data.msg.passages[0];
         })
         .catch(function (err) {
