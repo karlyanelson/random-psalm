@@ -26,7 +26,7 @@ const handler = async function (event) {
 
   try {
     const response = await fetch(
-      `https://api.esv.org/v3/passage/text/?q=${API_PARAMS}`,
+      `https://api.esv.org/v3/passage/html/?q=${API_PARAMS}`,
       {
         headers: {
           Accept: "application/json",

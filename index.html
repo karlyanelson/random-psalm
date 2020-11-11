@@ -23,7 +23,7 @@
         .then(function (data) {
           console.log("fetch data", data);
 
-          document.querySelector("#content").textContent = data.msg.passages[0];
+          document.querySelector("#content").innerHTML = data.msg.passages[0];
         })
         .catch(function (err) {
           console.warn("Error:", err);
