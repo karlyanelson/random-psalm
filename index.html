@@ -5,9 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Random Psalm</title>
   </head>
+  <style>
+    body {
+      font-size: 1.5rem;
+      text-align: center;
+      font-family: Georgia, "Times New Roman", Times, serif;
+    }
+
+    p {
+      line-height: 1.8;
+    }
+
+    .audio {
+      display: block;
+      font-size: 0.5em;
+    }
+
+    .psalm-title {
+      font-style: italic;
+    }
+  </style>
   <body>
-    <h1>Random Psalm</h1>
-    <div id="content"></div>
+    <main>
+      <h1>Random Psalm</h1>
+      <div id="content"></div>
+    </main>
 
     <script>
       function randomNumber(min, max) {
