@@ -7,5 +7,29 @@
   </head>
   <body>
     <h1>Random Psalm</h1>
+    <p id="content"></p>
+
+    <script>
+      function handleResponse(response) {
+        if (response.ok) {
+          return response.json();
+        } else {
+          return Promise.reject(response);
+        }
+      }
+
+      // "/.netlify/functions/getpassage?q=John+11:35"
+
+      fetch("/.netlify/functions/node-fetch-example")
+        .then(handleResponse)
+        .then(function (data) {
+          console.log("fetch data", data);
+
+          document.querySelector("#content").textContent = data.msg;
+        })
+        .catch(function (err) {
+          console.warn("Error:", err);
+        });
+    </script>
   </body>
 </html>
