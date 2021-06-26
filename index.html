@@ -21,6 +21,8 @@
       <div id="content"></div>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@2.2.9/dist/purify.min.js"></script>
+
     <script>
       /**
        * Fetch Polyfill
@@ -617,16 +619,18 @@
         if (response.ok) {
           return response.json();
         } else {
-          return Promise.reject(response);
+          throw new Error(response.status);
         }
       }
 
       function showPsalm(data) {
-        contentArea.innerHTML = data.msg.passages[0];
+        contentArea.innerHTML = DOMPurify.sanitize(data.msg.passages[0]);
       }
 
       function handleError(err) {
-        console.warn("Error:", err);
+        contentArea.innerHTML =
+          "<p class='error' role='alert'>Sorry, there was an issue getting your Psalm. <br/> Please refresh the page and try again.</p>";
+        console.warn("Something went wrong:", err);
       }
 
       function checkLocalStorage() {

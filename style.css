@@ -149,6 +149,10 @@ a:hover {
   background-color: rgba(102, 51, 153, 0.1);
 }
 
+.error {
+  margin: 2rem 0;
+}
+
 /* Screen Reader */
 .screen-reader-text {
   border: 0;
