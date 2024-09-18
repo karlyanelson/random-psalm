@@ -2,6 +2,8 @@
 
 Gets a random Psalm from the [ESV API](https://api.esv.org/) using [Netlify Functions](https://docs.netlify.com/functions/overview/)
 
+[View Website](https://randompsalm.netlify.app/)
+
 ## Development
 
 1. Install [Netlify CLI](https://docs.netlify.com/cli/get-started/#installation) globally so you can use [netlify-dev](https://github.com/netlify/cli/blob/master/docs/netlify-dev.md#netlify-functions)
